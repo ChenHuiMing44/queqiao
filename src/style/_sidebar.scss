@@ -1,0 +1,144 @@
+/* 侧边栏 */
+.sidebar {
+  width: 200px !important;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  overflow-x: hidden;
+  .logo-box{
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin: 8px 3px 8px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--el-color-white);
+    .logo-icon{
+      flex-shrink: 0;
+      width: 40px;
+    }
+    .app-name{
+      flex-shrink: 0;
+      margin-left: 10px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+  .el-menu-item-group__title{
+    padding: 2px 0;
+  }
+  &:after {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    content: "";
+    display: block;
+    opacity: .7;
+    z-index: 1;
+    position: absolute;
+    background: #000;
+  }
+  .el-menu {
+    position: relative;
+    z-index: 2;
+    background-color: initial !important;
+    .menu-container .el-menu-item,
+    .menu-container .el-sub-menu__title {
+      border-bottom: 1px solid rgba(100, 100, 100, 0.1);
+      min-width: 0;
+      &:hover {
+        background: var(--el-color-primary-light-2);
+      }
+    }
+  }
+  .iconfont {
+    margin-right: 8px;
+    color: #fff;
+    font-size: 18px;
+  }
+  .el-menu-item, .el-sub-menu__title {
+    padding: 0 15px;
+    margin: 3px 10px;
+    border-radius: 3px;
+  }
+  .el-menu-item.is-active {
+    background-color: var(--el-color-primary-light-2) !important;
+  }
+  .el-menu{
+    border: none !important;
+  }
+}
+
+/* 主体内容 */
+.main-container {
+  margin-left: 200px;
+  transition: margin-left 0.25s;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* 折叠菜单下的样式 */
+.navCollapsed {
+  .sidebar {
+    width: 64px !important;
+    transition: all 0.25s;
+    .logo-box {
+      padding-left: 10px;
+      margin: 8px 0;
+      .app-name {
+        display: none;
+      }
+    }
+    .iconfont+span {
+      display: none;
+    }
+    .el-submenu__icon-arrow {
+      display: none;
+    }
+    .el-menu-item, .el-sub-menu__title {
+      padding: 0 15px;
+      margin: 3px 0;
+      border-radius: 3px;
+    }
+    .el-sub-menu__icon-arrow{
+      display: none;
+    }
+  }
+  .main-container {
+    margin-left: 64px;
+  }
+  .aside__top{
+    left:64px!important;
+  }
+}
+
+.el-popper .el-menu {
+  background-color:  #000e;
+  .el-menu-item-group__title{
+    padding: 2px 0;
+  }
+  .el-menu-item.is-active {
+    background-color: var(--el-color-primary-light-2) !important;
+  }
+  .menu-container .el-menu-item,
+  .menu-container .el-sub-menu__title {
+    border-bottom: 1px solid rgba(100, 100, 100, 0.1);
+    min-width: 0;
+    &:hover {
+      background: var(--el-color-primary-light-2);
+    }
+  }
+  .el-menu-item, .el-sub-menu__title {
+    padding: 0 15px;
+    margin: 3px 10px;
+    border-radius: 3px;
+  }
+}
