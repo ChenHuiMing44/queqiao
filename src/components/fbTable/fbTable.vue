@@ -57,14 +57,23 @@
           <template v-slot="scope">{{ getTargetVal(scope.row, column) }}</template>
         </el-table-column>
       </template>
+      <el-table-column fixed="right" label="操作" align="center" :min-width="operatesWidth">
+        <template v-slot="{row, $index}">
+          <fb-row-operates
+            :btn-list="targetOperates(row, $index)"
+            @handleOperate="(key) =>$emit('handleOperate', key, row)"
+          />
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>
 
 <script setup>
 import { defineProps, defineExpose, defineEmits, ref, computed } from 'vue'
+import FbRowOperates from '@/components/fbTable/fbRowOperates'
 
-const emit = defineEmits(['selection-change', 'select-all', 'selection-single'])
+const emit = defineEmits(['selection-change', 'select-all', 'selection-single', 'handleOperate'])
 
 const props = defineProps({
   // 1.label require  2.key require 3.render 规则
@@ -80,10 +89,21 @@ const props = defineProps({
   page: { type: Number, default: 1 },
   rowKey: { type: String, default: 'id' },
   selection: Boolean,
-
+  operates: [Function, Array],
+  operatesWidth: { type: [Number, String], default: 140 },
   headerToggle: Boolean,
   headerBtns: { type: Array, default: () => [] }
 })
+
+const targetOperates = (row, index) => {
+  if (Array.isArray(props.operates)) {
+    return props.operates
+  }
+  if (typeof props.operates === 'function') {
+    return props.operates(row)
+  }
+  return []
+}
 
 const tableRef = ref(null)
 

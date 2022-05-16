@@ -19,7 +19,7 @@ const testRoutes = resolveModules(require.context('@/views/test', false, /.vue$/
 
 const test1Routes = resolveModules(require.context('@/views/test1', false, /.vue$/, 'lazy-once'), '/test1')
 
-console.log(testRoutes, test1Routes)
+const sourceRoutes = resolveModules(require.context('@/views/source', false, /.vue$/, 'lazy-once'), '/source')
 
 // const routes = [...testRoutes]
 
@@ -27,4 +27,4 @@ console.log(testRoutes, test1Routes)
 //   routes.push(...testRoutes)
 // }
 
-export default Object.assign(homeRoutes, test1Routes, testRoutes, loginRoutes)
+export default Object.assign(homeRoutes, test1Routes, testRoutes, loginRoutes, sourceRoutes)

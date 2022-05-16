@@ -9,8 +9,8 @@
       </template>
     </div>
     <div class="header-right">
-      <el-button :icon="Search" circle @click="handleToggleHeader" />
-      <el-button type="primary" plain :icon="RefreshLeft" circle @click="handleRefresh"/>
+      <el-button v-if="hasSearch" :icon="Search" circle @click="handleSearch" />
+      <el-button v-if="hasRefresh" type="primary" plain :icon="RefreshLeft" circle @click="handleRefresh"/>
     </div>
   </div>
 </template>
@@ -30,8 +30,10 @@ const btnThemeList = [
   ''
 ]
 
-const emit = defineEmits(['handleRefresh', 'handleToggleHeader', 'handleEvent'])
+const emit = defineEmits(['handleRefresh', 'handleSearch', 'handleToggleHeader', 'handleEvent'])
 const props = defineProps({
+  hasSearch: Boolean,
+  hasRefresh: { type: Boolean, default: true },
   headerToggle: Boolean, // 是否显示隐藏表格这个按钮
   btnList: { type: Array, default: () => [] }
 })

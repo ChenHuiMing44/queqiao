@@ -31,7 +31,7 @@ const btnOperateList = computed(() => {
   return list
 })
 const handleOperate = (btn) => {
-  emit('handleOperate', event.key)
+  emit('handleOperate', btn.key)
 }
 </script>
 

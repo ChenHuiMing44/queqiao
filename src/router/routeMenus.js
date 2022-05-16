@@ -64,6 +64,33 @@ const menus = [
       title: '页面22',
       icon: { svg: '', font: '', text: '觉' }
     }]
+  },
+  {
+    layout: 'Layout',
+    name: '资源组',
+    key: 'Source',
+    path: 'source',
+    icon: { svg: '', font: 'icon-shanchu1', text: '' },
+    children: [{
+      path: 'shared',
+      key: 'SourceShared',
+      name: '共享模块',
+      title: '共享模块',
+      icon: { svg: '', font: '', text: '享' }
+    }, {
+      path: 'sourceList',
+      key: 'SourceList',
+      name: '资源数组',
+      title: '资源数组',
+      icon: { svg: '', font: '', text: '资' }
+    }, {
+      path: 'sourceDetail',
+      key: 'SourceDetail',
+      hidden: true,
+      name: '资源详情',
+      title: '资源详情'
+    }
+    ]
   }
 ]
 

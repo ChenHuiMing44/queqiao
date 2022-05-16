@@ -26,6 +26,7 @@ export default (queryFn, options = {}) => {
     empty: false,
     error: false,
     list: [],
+    pageSizeList,
     total: 0,
     page: 1,
     size: options.size || defaultSize,
@@ -78,12 +79,8 @@ export default (queryFn, options = {}) => {
       const list = res.result || []
       const total = +res.total || 0
       state.total = total
-      if (state.refreshing || reset) {
-        state.list = list
-      } else {
-        state.list = state.list.concat(list)
-      }
-      if (state.list.length >= total) {
+      state.list = list
+      if (state.list * state.page >= total) {
         state.finished = true
       } else {
         state.finished = false
@@ -121,7 +118,7 @@ export default (queryFn, options = {}) => {
   })
 
   // 刷新页面用的
-  const reloadCurrent = () => {
+  const load = () => {
     state.loading = true
     query()
   }
@@ -139,6 +136,6 @@ export default (queryFn, options = {}) => {
     setSuccessHook,
     setErrorHook,
     queryRefresh,
-    reloadCurrent
+    load
   }
 }

@@ -64,3 +64,18 @@
   height: 28px;
   padding: 6px 12px;
 }
+
+
+.warning.el-button--text {
+  color: var(--el-color-warning);
+  &:active {
+    color: var(--el-color-warning-dark-2);
+  }
+}
+
+.danger.el-button--text {
+  color: var(--el-color-danger);
+  &:active {
+    color: var(--el-color-danger-dark-2);
+  }
+}

@@ -9,16 +9,19 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^0.27.2",
+    "buffer": "^6.0.3",
     "core-js": "^3.8.3",
     "dayjs": "^1.11.0",
     "element-plus": "^2.1.7",
+    "js-md5": "^0.7.3",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "path-browserify": "^1.0.1",
     "screenfull": "^6.0.1",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.14",
+    "vuetify": "^3.0.0-beta.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
